@@ -1,15 +1,24 @@
 package cafe;
 import java.math.BigDecimal;
 
-public class Beverage extends Product { //extends Product == an example of inheritence
-    public Beverage(String id, String name, BigDecimal basePrice) {
-        super(id, name, basePrice); //dont fully know what a super class is, super class parameters must match with contorctors 
+public class Beverage extends Product {
+    private Size size;
 
+    public Beverage(String id, String name, BigDecimal basePrice, Size size) {
+        super(id, name, basePrice);
+        this.size = size;
     }
 
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
+
+    @Override
     public BigDecimal price() {
-        BigDecimal price =  this.getBasePrice().multiply(BigDecimal.valueOf(this.getQuality()));
-        return price;
+        return this.getBasePrice().multiply(BigDecimal.valueOf(size.getMultiplier()));
     }
 }
-
