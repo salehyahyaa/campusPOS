@@ -16,13 +16,12 @@ public class Menu {
         
         beverage = new Beverage("B02", "Tea", BigDecimal.valueOf(3.50));
         items.add(beverage); 
-
     } 
 
 
     public void displayMenu() { //this class is to handle the displayingMenu portion   //void function doesnt return anything
         System.out.println("\nWelcome to CAMPUS CAFE\n");
-        System.out.println("\nPlease select from the following iteams...\n");
+        System.out.println("Please select from the following iteams...\n");
 
         for(Product item : items) {
             System.out.println(String.format("%s -- %s: $%.2f",                    //[0] == descriptionName, [1] acutal data
