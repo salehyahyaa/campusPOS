@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        Menu menu = new Menu(); //bringing the menu file and evrythin in it into this main
+        Menu menu = new Menu(); //bringing the menu file and everything in it into this main
         String menuOption = "";
 
         do {
@@ -13,13 +13,20 @@ public class Main {
             System.out.println("\nPlease make selection: ");
             menuOption = sc.nextLine();
             Product item = menu.getMenuItem(menuOption);
+
             if (item == null) {
-                System.out.println("\nYour selection is invaild"); 
+                System.out.println("\nYour selection is invalid"); 
+                continue; // go back to menu
             }
-            else {
-                System.out.println(String.format("\nYou selected: ", args));
-            }
-        
-        } while (!menuOption.equals("end"));
+
+            int quality = 2; // example hardcoded value
+            item.setQuality(quality);
+
+            System.out.println(String.format(
+                "\nYou selected: %s -- %s -- %.2f -- total price: %.2f", 
+                item.getId(), item.getName(), item.getBasePrice(), item.price()
+            ));
+
+        } while (!menuOption.equals("end")); // <-- closes the loop correctly
     }
 }

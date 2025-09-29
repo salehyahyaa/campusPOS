@@ -5,6 +5,7 @@ public abstract class Product { //cannot create objects within asbtract class //
     private String id;
     private String name;
     private BigDecimal basePrice;
+    private int quality;
 
     public Product(String id, String name, BigDecimal basePrice) {
         this.id = id;
@@ -24,4 +25,14 @@ public abstract class Product { //cannot create objects within asbtract class //
     public BigDecimal getBasePrice() { //public all functions, no void since returning something dataType functionName
         return this.basePrice;
     }
+
+    public void setQuality(int quality) {
+        this.quality = quality;
+    }
+
+    public int getQuality() {
+        return quality;
+    }
+
+    public abstract BigDecimal price();
 }
