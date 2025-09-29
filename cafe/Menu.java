@@ -28,4 +28,13 @@ public class Menu {
                     item.getId(), item.getName(), item.getBasePrice()));
         }
     }
+
+    public Product getMenuItem(String id) {
+        for(Product item : items) {
+            if(item.getId().equalsIgnoreCase(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
 }
